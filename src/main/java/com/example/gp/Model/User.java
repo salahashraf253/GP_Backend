@@ -1,46 +1,31 @@
 package com.example.gp.Model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import jakarta.persistence.*;
-import lombok.NonNull;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @Entity
-@DynamicInsert
-@DynamicUpdate
-public class User implements Serializable{
+@Table
+public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String firstName;
-    private String lastName;
+
+    @OneToOne
+    @JoinColumn(name = "name_id",referencedColumnName = "id")
+    @JsonProperty("name")
+    private Name name;
     private String nationality;
     private String phoneNumber;
+    private String email;
+    private String password;
 
-    @ManyToMany(mappedBy = "preferencedUsers")
-    @JsonProperty("hotelPreferences")
-    private Set<HotelPreference> hotelPreferences;
 
-    public User(){
-        hotelPreferences=new HashSet<>();
+    public User() {
     }
+
     //NOTE: DON'T remove the getters
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
     public String getNationality() {
         return nationality;
     }
@@ -49,15 +34,14 @@ public class User implements Serializable{
         return phoneNumber;
     }
 
-    public Set<HotelPreference> getHotelPreferences() {
-        return hotelPreferences;
+    public String getEmail() {
+        return email;
     }
 
-    public void setHotelPreferences(Set<HotelPreference> hotelPreferences) {
-        this.hotelPreferences = hotelPreferences;
+    public String getPassword() {
+        return password;
     }
-
-    public void addHotelPreference(HotelPreference hotelPreference){
-        this.hotelPreferences.add(hotelPreference);
+    public Name getName(){
+        return name;
     }
 }
