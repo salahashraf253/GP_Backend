@@ -1,44 +1,34 @@
 package com.example.gp.Model;
 
-import jakarta.persistence.*;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.io.Serializable;
 
 @Entity
-@DynamicInsert
-@DynamicUpdate
-public class HotelPreference {
+public class HotelPreference implements Serializable {
     @Id
     @GeneratedValue
     private int id;
 
+    @JsonProperty("preference")
     private String preference;
 
-    @ManyToMany
-    @JoinTable(
-            name = "user_hotel_preference",
-            joinColumns = @JoinColumn(name = "HotelPreference_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
-    )
-    Set<User> preferencedUsers = new HashSet<>();
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getPreference() {
         return preference;
     }
 
-    public Set<User> getPreferencedUsers() {
-        return preferencedUsers;
-    }
-
     public void setPreference(String preference) {
         this.preference = preference;
-    }
-    public void addPreferencedUser(User user){
-        this.preferencedUsers.add(user);
     }
 }
