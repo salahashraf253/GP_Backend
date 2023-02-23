@@ -1,6 +1,5 @@
-package com.example.gp.Repository;
+package com.example.gp.Hotel.Preference;
 
-import com.example.gp.Model.HotelPreference;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
