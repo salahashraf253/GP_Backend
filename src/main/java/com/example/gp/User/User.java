@@ -1,5 +1,8 @@
-package com.example.gp.Model;
+package com.example.gp.User;
 
+import com.example.gp.Hotel.Preference.HotelPreference;
+import com.example.gp.Restaurant.Cuisine.RestaurantCuisine;
+import com.example.gp.User.Name.Name;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
@@ -31,9 +34,19 @@ public class User implements Serializable {
     @JoinTable(
             name = "hotelPreferences_Likes",
             joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "HotelPreference_id"))
+            inverseJoinColumns = @JoinColumn(name = "HotelPreference_id")
+    )
     @JsonProperty("hotelPreferencesLikes")
     private Set<HotelPreference> hotelPreferencesLikes;
+
+    @ManyToMany
+    @JoinTable(
+            name = "RestaurantCuisines_likes",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "RestaurantCuisines_id")
+    )
+    @JsonProperty("restaurantCuisinesLikes")
+    private Set<RestaurantCuisine> restaurantCuisinesLikes;
 
     public User() {
     }
@@ -65,5 +78,22 @@ public class User implements Serializable {
 
     public void setHotelPreferencesLikes(Set<HotelPreference> hotelPreferencesLikes) {
         this.hotelPreferencesLikes = hotelPreferencesLikes;
+    }
+
+    public Set<RestaurantCuisine> getRestaurantCuisinesLikes() {
+        return restaurantCuisinesLikes;
+    }
+
+    public void setRestaurantCuisinesLikes(Set<RestaurantCuisine> restaurantCuisinesLikes) {
+        this.restaurantCuisinesLikes = restaurantCuisinesLikes;
+    }
+
+
+    public void addHotelPreference(HotelPreference hotelPreference) {
+        this.hotelPreferencesLikes.add(hotelPreference);
+    }
+
+    public void getRestaurantCuisine(RestaurantCuisine restaurantCuisine) {
+        this.restaurantCuisinesLikes.add(restaurantCuisine);
     }
 }

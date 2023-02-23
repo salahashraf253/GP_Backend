@@ -1,7 +1,5 @@
-package com.example.gp.Service;
+package com.example.gp.User.Name;
 
-import com.example.gp.Model.Name;
-import com.example.gp.Repository.NameRepo;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -12,7 +10,7 @@ public class NameService {
         this.nameRepo = nameRepo;
     }
 
-    public void saveName(Name name){
+    public void save(Name name) {
         nameRepo.save(name);
     }
 }

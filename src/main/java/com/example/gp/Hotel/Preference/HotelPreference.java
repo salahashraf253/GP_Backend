@@ -1,4 +1,4 @@
-package com.example.gp.Model;
+package com.example.gp.Hotel.Preference;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;

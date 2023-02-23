@@ -1,8 +1,8 @@
-package com.example.gp.Service;
+package com.example.gp.Hotel.Preference;
 
-import com.example.gp.Model.HotelPreference;
-import com.example.gp.Repository.HotelPreferenceRepo;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class HotelPreferenceService {
@@ -13,10 +13,17 @@ public class HotelPreferenceService {
     }
 
     public void addPreference(HotelPreference hotelPreference){
-        hotelPreferenceRepo.save(hotelPreference);
+        this.hotelPreferenceRepo.save(hotelPreference);
     }
 
     public HotelPreference findById(int preferenceId) {
-        return hotelPreferenceRepo.findById(preferenceId);
+        return this.hotelPreferenceRepo.findById(preferenceId);
+    }
+
+    public List<HotelPreference> findAll() {
+        return this.hotelPreferenceRepo.findAll();
+    }
+    public void save(HotelPreference hotelPreference){
+        this.hotelPreferenceRepo.save(hotelPreference);
     }
 }
