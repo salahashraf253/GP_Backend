@@ -36,8 +36,8 @@ public class UserController {
         return userService.getUser(userId);
     }
 
-    @PutMapping("/{userId}/hotelPreferences/{hotelPreferenceId}")
-    public User addHotelPreferences(@PathVariable int userId,@PathVariable int hotelPreferenceId  )  {
-        return userService.addHotelPreference(userId,hotelPreferenceId);
-    }
+//    @PutMapping("/{userId}/hotelPreferences/{hotelPreference}")
+//    public User addHotelPreferences(@PathVariable int userId,@PathVariable String hotelPreference  )  {
+//        return userService.addHotelPreference(userId,hotelPreference);
+//    }
 }
