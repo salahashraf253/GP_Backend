@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/restaurant/cuisine")
+@RequestMapping("/restaurants/cuisines")
 public class RestaurantCuisineController {
     private RestaurantCuisineService restaurantCuisineService;
 

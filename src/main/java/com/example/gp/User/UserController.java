@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
     private UserService userService;
     private HotelPreferenceService hotelPreferenceService;
@@ -26,11 +26,11 @@ public class UserController {
     public User login(@RequestBody Map<String, String> mp) {
         System.out.println("Email: " + mp.get("email"));
         User user = userService.login(mp.get("email"), mp.get("password"));
-        if (user != null) {
-            return user;
+        if (user == null) {
+            //wrong email or password
+            throw new ResourceNotFoundException();
         }
-        //wrong email or password
-        throw new ResourceNotFoundException();
+        return user;
     }
 
     @PostMapping()
@@ -43,7 +43,7 @@ public class UserController {
         return userService.getUser(userId);
     }
 
-    @PutMapping("/hotel/preference/{userId}/{hotelPreferenceId}")
+    @PutMapping("/{userId}/hotels/preferences/{hotelPreferenceId}")
     public User assignHotelPreference(@PathVariable int userId, @PathVariable int hotelPreferenceId) {
         User user = userService.findById(userId);
         HotelPreference hotelPreference = hotelPreferenceService.findById(hotelPreferenceId);
@@ -51,12 +51,17 @@ public class UserController {
         return userService.save(user);
     }
 
-    @PutMapping("/restaurant/cuisine/{userId}/{cuisineId}")
+    @PutMapping("/{userId}/restaurants/cuisines/{cuisineId}")
     public User assignRestaurantCuisine(@PathVariable int userId, @PathVariable int cuisineId) {
         User user = userService.findById(userId);
         RestaurantCuisine restaurantCuisine = restaurantCuisineService.findById(cuisineId);
         user.getRestaurantCuisine(restaurantCuisine);
         return userService.save(user);
+    }
+
+    @DeleteMapping("/{userId}")
+    public void deleteUser(@PathVariable long userId) {
+        userService.deleteUser(userId);
     }
 
 }

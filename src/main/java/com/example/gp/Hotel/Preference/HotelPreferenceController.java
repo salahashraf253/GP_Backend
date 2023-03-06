@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/hotel/preference")
+@RequestMapping("/hotels/preferences")
 public class HotelPreferenceController {
     private HotelPreferenceService hotelPreferenceService;
     private UserService userService;
