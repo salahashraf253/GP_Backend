@@ -43,5 +43,9 @@ public class UserService {
         return userRepo.save(user);
     }
 
+    public User login(String email, String password){
+        return userRepo.findByEmailAndPassword(email,password);
+    }
+
 
 }
