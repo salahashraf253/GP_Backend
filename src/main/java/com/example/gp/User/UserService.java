@@ -47,5 +47,9 @@ public class UserService {
         return userRepo.findByEmailAndPassword(email,password);
     }
 
+    public void deleteUser(long userId){
+        userRepo.deleteById(userId);
+    }
+
 
 }
