@@ -14,7 +14,7 @@
 Here's an example of how to add new user using the UserController:
 ```java 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
