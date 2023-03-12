@@ -57,7 +57,18 @@
                     </excludes>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>com.microsoft.azure</groupId>
+                <artifactId>azure-webapp-maven-plugin</artifactId>
+                <version>1.12.0</version>
+                <configuration>
+                    <appName>GpBackend</appName>
+                    <resourceGroup>FreeResource</resourceGroup>
+                    <region>East US</region>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
+
 
 </project>
