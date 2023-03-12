@@ -22,6 +22,10 @@ public class UserController {
         this.restaurantCuisineService = restaurantCuisineService;
     }
 
+    @GetMapping("/hello")
+    public String hello(){
+        return "Hello";
+    }
     @PostMapping("/login")
     public User login(@RequestBody Map<String, String> mp) {
         System.out.println("Email: " + mp.get("email"));
