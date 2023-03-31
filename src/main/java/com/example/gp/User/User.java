@@ -2,7 +2,6 @@ package com.example.gp.User;
 
 import com.example.gp.Hotel.Preference.HotelPreference;
 import com.example.gp.Restaurant.Cuisine.RestaurantCuisine;
-import com.example.gp.User.Name.Name;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
@@ -16,16 +15,22 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @OneToOne
-    @JoinColumn(name = "name_id", referencedColumnName = "id")
-    @JsonProperty("name")
-    private Name name;
+
+    @JsonProperty("firstName")
+    private String firstName;
+
+    @JsonProperty("secondName")
+    private String secondName;
+
     @JsonProperty("nationality")
     private String nationality;
+
     @JsonProperty("phoneNumber")
     private String phoneNumber;
+
     @JsonProperty("email")
     private String email;
+
     @JsonProperty("password")
     private String password;
 
@@ -36,7 +41,6 @@ public class User implements Serializable {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "HotelPreference_id")
     )
-    @JsonProperty("hotelPreferencesLikes")
     private Set<HotelPreference> hotelPreferencesLikes;
 
     @ManyToMany
@@ -45,13 +49,11 @@ public class User implements Serializable {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "RestaurantCuisines_id")
     )
-    @JsonProperty("restaurantCuisinesLikes")
     private Set<RestaurantCuisine> restaurantCuisinesLikes;
 
     public User() {
     }
 
-    //NOTE: DON'T remove the getters
     public String getNationality() {
         return nationality;
     }
@@ -68,8 +70,12 @@ public class User implements Serializable {
         return password;
     }
 
-    public Name getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getSecondName() {
+        return secondName;
     }
 
     public Set<HotelPreference> getHotelPreferencesLikes() {
