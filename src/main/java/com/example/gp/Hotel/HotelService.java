@@ -16,11 +16,10 @@ public class HotelService {
         return hotelRepo.findAll();
     }
 
-    //TODO refactor this function
-    public List<Hotel> getAllHotelsById(List<Integer> ids) {
+    public List<Hotel> getAllHotelsById(Integer[] hotelsId) {
         List<Hotel> hotels = new ArrayList<>();
-        for (int id : ids) {
-            hotels.add(hotelRepo.findById(id));
+        for (int id : hotelsId) {
+            hotels.add(getHotelById(id));
         }
         return hotels;
     }
