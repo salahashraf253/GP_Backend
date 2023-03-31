@@ -16,16 +16,22 @@ public class User implements Serializable {
     private int id;
 
 
+    @JsonProperty("firstName")
     private String firstName;
 
+    @JsonProperty("secondName")
     private String secondName;
 
+    @JsonProperty("nationality")
     private String nationality;
 
+    @JsonProperty("phoneNumber")
     private String phoneNumber;
 
+    @JsonProperty("email")
     private String email;
 
+    @JsonProperty("password")
     private String password;
 
 
