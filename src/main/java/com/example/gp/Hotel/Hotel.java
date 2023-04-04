@@ -33,6 +33,9 @@ public class Hotel {
     @Column(name = "Price_Range")
     private String priceRange;
 
+    @Column(name = "image_url")
+    private String imageUrl;
+
     @Id
     public Long getId() {
         return id;
@@ -120,5 +123,13 @@ public class Hotel {
 
     public void setPriceRange(String priceRange) {
         this.priceRange = priceRange;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
