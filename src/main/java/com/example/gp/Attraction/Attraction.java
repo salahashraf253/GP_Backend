@@ -1,5 +1,6 @@
 package com.example.gp.Attraction;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
@@ -24,6 +25,9 @@ public class Attraction{
     private double longitude;
 
     private String keywords;
+
+    @Column(name = "image_url")
+    private String imageUrl;
 
     public Long getId() {
         return id;
@@ -97,5 +101,11 @@ public class Attraction{
         this.keywords = keywords;
     }
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
 
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 }
