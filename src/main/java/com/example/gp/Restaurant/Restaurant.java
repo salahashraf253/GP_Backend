@@ -1,9 +1,6 @@
 package com.example.gp.Restaurant;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Restaurant {
@@ -26,6 +23,9 @@ public class Restaurant {
     private String url;
 
     private String cuisines;
+
+    @Column(name = "image_url")
+    private String imageUrl;
 
     public void setId(Long id) {
         this.id = id;
@@ -97,5 +97,13 @@ public class Restaurant {
 
     public void setCuisines(String cuisines) {
         this.cuisines = cuisines;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
