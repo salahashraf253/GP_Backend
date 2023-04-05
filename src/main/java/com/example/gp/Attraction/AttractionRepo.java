@@ -5,4 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AttractionRepo extends JpaRepository<Attraction,Long> {
+    Attraction findById(int attractionId);
 }
