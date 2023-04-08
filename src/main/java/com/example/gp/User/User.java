@@ -1,5 +1,6 @@
 package com.example.gp.User;
 
+import com.example.gp.Attraction.Preference.AttractionPreference;
 import com.example.gp.Hotel.Preference.HotelPreference;
 import com.example.gp.Restaurant.Cuisine.RestaurantCuisine;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -51,6 +52,14 @@ public class User implements Serializable {
     )
     private Set<RestaurantCuisine> restaurantCuisinesLikes;
 
+    @ManyToMany
+    @JoinTable(
+            name = "attracionPreferences_Likes",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "AttractionPreference_id")
+    )
+    private Set<AttractionPreference> attractionPreferencesLikes;
+
     public User() {
     }
 
@@ -99,7 +108,7 @@ public class User implements Serializable {
         this.hotelPreferencesLikes.add(hotelPreference);
     }
 
-    public void getRestaurantCuisine(RestaurantCuisine restaurantCuisine) {
+    public void addRestaurantCuisine(RestaurantCuisine restaurantCuisine) {
         this.restaurantCuisinesLikes.add(restaurantCuisine);
     }
 
@@ -109,5 +118,21 @@ public class User implements Serializable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void addAttractionPreference(AttractionPreference attractionPreference) {
+        this.attractionPreferencesLikes.add(attractionPreference);
+    }
+
+    public Set<AttractionPreference> getAttractionPreferencesLikes() {
+        return attractionPreferencesLikes;
+    }
+
+    public void setAttractionPreferencesLikes(Set<AttractionPreference> attractionPreferencesLikes) {
+        this.attractionPreferencesLikes = attractionPreferencesLikes;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
     }
 }
