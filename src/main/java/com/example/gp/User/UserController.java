@@ -55,13 +55,13 @@ public class UserController {
         return userService.save(user);
     }
 
-    @PutMapping("/{userId}/restaurants/cuisines/{cuisineId}")
-    public User assignRestaurantCuisine(@PathVariable int userId, @PathVariable int cuisineId) {
-        User user = userService.findById(userId);
-        RestaurantCuisine restaurantCuisine = restaurantCuisineService.findById(cuisineId);
-        user.getRestaurantCuisine(restaurantCuisine);
-        return userService.save(user);
-    }
+    // @PutMapping("/{userId}/restaurants/cuisines/{cuisineId}")
+    // public User assignRestaurantCuisine(@PathVariable int userId, @PathVariable int cuisineId) {
+    //     User user = userService.findById(userId);
+    //     RestaurantCuisine restaurantCuisine = restaurantCuisineService.findById(cuisineId);
+    //     user.getRestaurantCuisine(restaurantCuisine);
+    //     return userService.save(user);
+    // }
 
     @DeleteMapping("/{userId}")
     public void deleteUser(@PathVariable long userId) {
