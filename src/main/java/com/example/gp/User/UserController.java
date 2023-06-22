@@ -42,6 +42,11 @@ public class UserController {
         return userService.addUser(user);
     }
 
+    @PutMapping()
+    public User editUser(@RequestBody User user) {
+        return userService.editUser(user);
+    }
+
     @GetMapping("/{userId}")
     public User getUser(@PathVariable int userId) {
         return userService.getUser(userId);
