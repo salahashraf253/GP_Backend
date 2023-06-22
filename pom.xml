@@ -14,9 +14,9 @@
     <name>GP_Backend</name>
     <description>Demo project for Spring Boot</description>
     <properties>
-        <java.version>17</java.version>
-        <maven.compiler.target>17</maven.compiler.target>
-        <maven.compiler.source>17</maven.compiler.source>
+        <java.version>11</java.version>
+        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
     </properties>
     <dependencies>
         <dependency>
@@ -69,6 +69,26 @@
                     <region>East US</region>
                 </configuration>
             </plugin>
+
+<!--            <plugin>-->
+<!--                <groupId>com.spotify</groupId>-->
+<!--                <artifactId>dockerfile-maven-plugin</artifactId>-->
+<!--                <version>1.4.13</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>default</id>-->
+<!--                        <goals>-->
+<!--                            <goal>build</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--                <configuration>-->
+<!--                    <repository>your-docker-repo/image-name</repository>-->
+<!--                    <buildArgs>-->
+<!--                        <JAR_FILE>target/*.jar</JAR_FILE>-->
+<!--                    </buildArgs>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 

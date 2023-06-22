@@ -28,7 +28,7 @@ public class HotelService {
         return hotelRepo.findById(hotelId);
     }
 
-    public void addHotel(Hotel hotel) {
-        hotelRepo.save(hotel);
+    public void addHotel(List<Hotel> hotels) {
+        hotelRepo.saveAll(hotels);
     }
 }

@@ -27,4 +27,8 @@ public class RestaurantService {
     private Restaurant getRestaurantById(int id) {
         return restaurantRepo.findById(id);
     }
+
+    public void addRestaurants(List<Restaurant> restaurants) {
+        restaurantRepo.saveAll(restaurants);
+    }
 }

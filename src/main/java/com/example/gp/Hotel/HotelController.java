@@ -18,8 +18,8 @@ public class HotelController {
     }
 
     @PostMapping("")
-    public void addHotel(@RequestBody Hotel hotel) {
-        hotelService.addHotel(hotel);
+    public void addHotels(@RequestBody List<Hotel> hotels) {
+        hotelService.addHotel(hotels);
     }
 
     @GetMapping("/{hotelId}")

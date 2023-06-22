@@ -24,4 +24,8 @@ public class RestaurantCuisineService {
     public RestaurantCuisine findById(int cuisineId) {
         return this.restaurantCuisinesRepo.findById(cuisineId);
     }
+
+    public void addRestaurantCuisine(List<RestaurantCuisine> restaurantCuisines) {
+        this.restaurantCuisinesRepo.saveAll(restaurantCuisines);
+    }
 }

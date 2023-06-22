@@ -2,7 +2,9 @@ package com.example.gp.Restaurant;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -18,5 +20,10 @@ public class RestaurantController {
     @GetMapping("")
     public List<Restaurant>findAll(){
         return restaurantService.findAll();
+    }
+
+    @PostMapping("")
+    public void addRestaurants(@RequestBody List<Restaurant> restaurants){
+        restaurantService.addRestaurants(restaurants);
     }
 }
