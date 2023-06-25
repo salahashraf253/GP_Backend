@@ -44,4 +44,15 @@ public abstract class Recommender {
         );
         System.out.println("User Profile: " +response.getStatusCode());
     }
+
+    public Integer [] recommendByCosineSimilarity(int userId){
+        String url = usedUrl + "/" + "cosine/" + userId;
+        ResponseEntity<Integer[]> response = restTemplate.getForEntity(url, Integer[].class);
+        if (response.getStatusCode() == HttpStatus.OK) {
+            return response.getBody();
+        } else {
+            throw new RuntimeException("Failed to get recommended with cosine similarity");
+        }
+
+    }
 }

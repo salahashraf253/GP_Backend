@@ -2,6 +2,8 @@ package com.example.gp.Hotel.Recommender;
 
 import com.example.gp.Hotel.Hotel;
 import com.example.gp.Hotel.HotelService;
+import com.example.gp.Restaurant.Restaurant;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +25,13 @@ public class HotelRecommenderController {
     public List<Hotel> recommendHotel(@PathVariable int userId, @PathVariable String city) {
         Integer[] recommendedHotelsId = hotelRecommenderService.recommend(userId, city);
         return hotelService.getAllHotelsById(recommendedHotelsId);
+    }
+
+
+    @GetMapping("/cosine/{userId}")
+    public List<Hotel> recommendHotelByCosine(@PathVariable int userId) {
+        Integer[] recommendedHotelId = hotelRecommenderService.recommendByCosineSimilarity(userId);
+        return hotelService.getAllHotelsById(recommendedHotelId);
     }
 
 }

@@ -19,8 +19,14 @@ public class RestaurantRecommenderController {
     private RestaurantService restaurantService;
 
     @GetMapping("/{userId}/{city}")
-    public List<Restaurant> recommendHotel(@PathVariable int userId, @PathVariable String city) {
-        Integer[] recommendedHotelsId = restaurantRecommenderService.recommend(userId, city);
-        return restaurantService.getAllHotelsById(recommendedHotelsId);
+    public List<Restaurant> recommendRestaurant(@PathVariable int userId, @PathVariable String city) {
+        Integer[] recommendedRestaurantId = restaurantRecommenderService.recommend(userId, city);
+        return restaurantService.getAllRestaurantsById(recommendedRestaurantId);
+    }
+
+    @GetMapping("/cosine/{userId}")
+    public List<Restaurant> recommendRestaurantByCosine(@PathVariable int userId) {
+        Integer[] recommendedRestaurantId = restaurantRecommenderService.recommendByCosineSimilarity(userId);
+        return restaurantService.getAllRestaurantsById(recommendedRestaurantId);
     }
 }

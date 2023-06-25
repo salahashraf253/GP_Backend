@@ -16,7 +16,7 @@ public class RestaurantService {
         return restaurantRepo.findAll();
     }
 
-    public List<Restaurant> getAllHotelsById(Integer[] restaurantsId) {
+    public List<Restaurant> getAllRestaurantsById(Integer[] restaurantsId) {
         List<Restaurant> restaurants = new ArrayList<>();
         for (int id : restaurantsId) {
             restaurants.add(this.getRestaurantById(id));
