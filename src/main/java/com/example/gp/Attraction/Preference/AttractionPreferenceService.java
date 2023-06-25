@@ -29,4 +29,14 @@ public class AttractionPreferenceService {
         }
         return attractionPreferenceSet;
     }
+
+    public void addAttractionPreferences(List<AttractionPreference> attractionPreferences) {
+        for (AttractionPreference attractionPreference : attractionPreferences) {
+            try {
+                attractionPreferenceRepo.save(attractionPreference);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
 }

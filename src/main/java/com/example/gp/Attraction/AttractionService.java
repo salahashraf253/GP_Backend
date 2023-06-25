@@ -15,7 +15,7 @@ public class AttractionService {
         return attractionRepo.findAll();
     }
 
-    public List<Attraction> getAllHotelsById(Integer[] attractionsId){
+    public List<Attraction> getAllAttractionsById(Integer[] attractionsId){
         List<Attraction> attractions= new ArrayList<>();
         for (int id : attractionsId){
             attractions.add((this.getAttractionById(id)));
@@ -25,6 +25,17 @@ public class AttractionService {
 
     public Attraction getAttractionById(int attractionId){
         return attractionRepo.findById(attractionId);
+    }
+
+    public void addAttractions(List<Attraction> attractions) {
+        for(Attraction attraction : attractions) {
+            try{
+                attractionRepo.save(attraction);
+            }
+            catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
 }
