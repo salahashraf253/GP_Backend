@@ -21,10 +21,16 @@ public class HotelPreferenceController {
         return hotelPreferenceService.findAll();
     }
 
+    // @PostMapping()
+    // public void addHotelPreference(@RequestBody HotelPreference hotelPreference) {
+    //     this.hotelPreferenceService.save(hotelPreference);
+    // }
+
     @PostMapping()
-    public void addHotelPreference(@RequestBody HotelPreference hotelPreference) {
-        this.hotelPreferenceService.save(hotelPreference);
+    public void addHotelPreference(@RequestBody List<HotelPreference> hotelPreferences) {
+        this.hotelPreferenceService.addHotelPreferences(hotelPreferences);
     }
+
 
     /*@PutMapping("/{userId}/{hotelPreferenceId}")
     public User addHotelPreferenceToUser(@PathVariable int userId, @PathVariable int hotelPreferenceId) {

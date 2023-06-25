@@ -23,7 +23,12 @@ public class HotelPreferenceService {
     public List<HotelPreference> findAll() {
         return this.hotelPreferenceRepo.findAll();
     }
+
     public void save(HotelPreference hotelPreference){
         this.hotelPreferenceRepo.save(hotelPreference);
+    }
+
+    public void addHotelPreferences(List<HotelPreference> hotelPreferences) {
+        this.hotelPreferenceRepo.saveAll(hotelPreferences);
     }
 }
