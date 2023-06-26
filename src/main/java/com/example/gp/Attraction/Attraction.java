@@ -1,5 +1,7 @@
 package com.example.gp.Attraction;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -13,20 +15,22 @@ public class Attraction{
 
     private double rating;
 
+    // private String location;
 
-    private String location;
-
-    private String description;
+    // private String description;
 
     private String city;
 
+    @JsonProperty("latitude")
     private double latitude;
 
+    @JsonProperty("ongitude")
     private double longitude;
 
     private String keywords;
 
     @Column(name = "image_url")
+    @JsonProperty("image_url")
     private String imageUrl;
 
     public Long getId() {
@@ -53,21 +57,21 @@ public class Attraction{
         this.rating = rating;
     }
 
-    public String getLocation() {
-        return location;
-    }
+    // public String getLocation() {
+    //     return location;
+    // }
 
-    public void setLocation(String location) {
-        this.location = location;
-    }
+    // public void setLocation(String location) {
+    //     this.location = location;
+    // }
 
-    public String getDescription() {
-        return description;
-    }
+    // public String getDescription() {
+    //     return description;
+    // }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    // public void setDescription(String description) {
+    //     this.description = description;
+    // }
 
     public String getCity() {
         return city;
