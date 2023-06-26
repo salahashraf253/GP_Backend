@@ -1,6 +1,5 @@
 package com.example.gp.Restaurant;
 
-import com.example.gp.Hotel.Hotel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +23,7 @@ public class RestaurantService {
         return restaurants;
     }
 
-    private Restaurant getRestaurantById(int id) {
+    public Restaurant getRestaurantById(int id) {
         return restaurantRepo.findById(id);
     }
 

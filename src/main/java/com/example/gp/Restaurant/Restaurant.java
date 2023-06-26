@@ -1,5 +1,7 @@
 package com.example.gp.Restaurant;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -18,13 +20,19 @@ public class Restaurant {
 
     private double longitude;
 
-    private double ratings;
+    @JsonProperty("phone_no")
+    private String phoneNumber;
 
-    private String url;
+ 
+
+    @JsonProperty("rate")
+    private double rate;
+
+    // private String url;
 
     private String cuisines;
 
-    @Column(name = "image_url")
+    @JsonProperty("image_url")
     private String imageUrl;
 
     public void setId(Long id) {
@@ -43,6 +51,16 @@ public class Restaurant {
         this.name = name;
     }
 
+    public String getPhoneNUmber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNUmber(String phoneNUmber) {
+        this.phoneNumber = phoneNUmber;
+    }
+
+   
+    
     public String getCity() {
         return city;
     }
@@ -75,21 +93,21 @@ public class Restaurant {
         this.longitude = longitude;
     }
 
-    public double getRatings() {
-        return ratings;
+    public double getRate() {
+        return rate;
     }
 
-    public void setRatings(double ratings) {
-        this.ratings = ratings;
+    public void setRate(double rate) {
+        this.rate = rate;
     }
 
-    public String getUrl() {
-        return url;
-    }
+    // public String getUrl() {
+    //     return url;
+    // }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
+    // public void setUrl(String url) {
+    //     this.url = url;
+    // }
 
     public String getCuisines() {
         return cuisines;
