@@ -57,9 +57,9 @@ public class UserController {
         return userService.addUser(user);
     }
 
-    @PutMapping()
-    public User editUser(@RequestBody User user) {
-        return userService.editUser(user);
+    @PutMapping("/{userId}")
+    public User editUser(@PathVariable int userId,@RequestBody User user) {
+        return userService.editUser(userId,user);
     }
 
     @GetMapping("/{userId}")
@@ -111,5 +111,10 @@ public class UserController {
         restaurantRecommenderService.userProfile(userId, attractionPreferences);
         return userService.save(user);
     }
+
+    // @GetMapping("/recommender/plan/{userId}/{city}")
+    // public Map<String, Object> getPlan(@PathVariable int userId, @PathVariable String city) {
+
+    // }
 
 }

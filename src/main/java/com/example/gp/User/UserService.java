@@ -41,7 +41,20 @@ public class UserService {
         userRepo.deleteById(userId);
     }
 
-    public User editUser(User user) {
-        return userRepo.save(user);
+    public User editUser(int userId,User user) {
+        User userToUpdate = userRepo.findById(userId);
+        userToUpdate.setFirstName(user.getFirstName());
+        userToUpdate.setSecondName(user.getSecondName());
+        userToUpdate.setNationality(user.getNationality());
+        if(user.getHotelPreferencesLikes() != null){
+            userToUpdate.setHotelPreferencesLikes(user.getHotelPreferencesLikes());
+        }
+        if(user.getAttractionPreferencesLikes() != null){
+            userToUpdate.setAttractionPreferencesLikes(user.getAttractionPreferencesLikes());
+        }
+        if(user.getRestaurantCuisinesLikes() != null){
+            userToUpdate.setRestaurantCuisinesLikes(user.getRestaurantCuisinesLikes());
+        }
+        return userRepo.save(userToUpdate);
     }
 }

@@ -67,6 +67,7 @@ public class User implements Serializable {
         return nationality;
     }
 
+
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -135,4 +136,12 @@ public class User implements Serializable {
     public void setNationality(String nationality) {
         this.nationality = nationality;
     }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }   
 }
