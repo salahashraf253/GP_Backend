@@ -18,7 +18,11 @@ public class AttractionService {
     public List<Attraction> getAllAttractionsById(Integer[] attractionsId){
         List<Attraction> attractions= new ArrayList<>();
         for (int id : attractionsId){
-            attractions.add((this.getAttractionById(id)));
+            Attraction attraction =this.getAttractionById(id);
+            if(attraction != null){
+                attractions.add(attraction);
+            }
+            // attractions.add((this.getAttractionById(id)));
         }
         return attractions;
     }

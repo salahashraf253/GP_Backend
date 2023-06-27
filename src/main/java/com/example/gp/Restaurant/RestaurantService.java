@@ -18,7 +18,10 @@ public class RestaurantService {
     public List<Restaurant> getAllRestaurantsById(Integer[] restaurantsId) {
         List<Restaurant> restaurants = new ArrayList<>();
         for (int id : restaurantsId) {
-            restaurants.add(this.getRestaurantById(id));
+            Restaurant restaurantToAdd = this.getRestaurantById(id);
+            if(restaurantToAdd != null){
+                restaurants.add(restaurantToAdd);
+            }
         }
         return restaurants;
     }

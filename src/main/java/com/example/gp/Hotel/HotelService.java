@@ -19,7 +19,11 @@ public class HotelService {
     public List<Hotel> getAllHotelsById(Integer[] hotelsId) {
         List<Hotel> hotels = new ArrayList<>();
         for (int id : hotelsId) {
-            hotels.add(getHotelById(id));
+            Hotel hotel= this.getHotelById(id);
+            if(hotel != null){
+                hotels.add(hotel);
+            }
+            // hotels.add(getHotelById(id));
         }
         // for(int i=0;i<hotels.size() && i<10;i++){
         //     hotels.add(getHotelById(hotelsId[i]));
@@ -37,7 +41,7 @@ public class HotelService {
                 hotelRepo.save(hotel);
             }
             catch (Exception e){
-                printHotelData(hotel);
+                // printHotelData(hotel);
                 System.out.println(e.getMessage());
             }
         }
