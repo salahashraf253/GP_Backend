@@ -3,10 +3,8 @@ package com.example.gp.User;
 import com.example.gp.Hotel.Recommender.HotelRecommenderService;
 import com.example.gp.Hotel.Preference.HotelPreferenceService;
 import com.example.gp.ResourceNotFoundException;
-import com.example.gp.Attraction.Attraction;
 import com.example.gp.Attraction.Preference.AttractionPreferenceService;
 import com.example.gp.Attraction.Recommender.AttractionRecommenderService;
-import com.example.gp.Restaurant.Cuisine.RestaurantCuisine;
 import com.example.gp.Restaurant.Cuisine.RestaurantCuisineService;
 import com.example.gp.Restaurant.Recommender.RestaurantRecommenderService;
 
@@ -37,10 +35,6 @@ public class UserController {
         this.attractionPreferenceService=attractionPreferenceService;
     }
 
-    @GetMapping("/hello")
-    public String hello(){
-        return "Hello";
-    }
     @PostMapping("/login")
     public User login(@RequestBody Map<String, String> mp) {
         System.out.println("Email: " + mp.get("email"));

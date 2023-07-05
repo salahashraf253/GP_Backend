@@ -2,7 +2,6 @@ package com.example.gp.Hotel.Recommender;
 
 import com.example.gp.Hotel.Hotel;
 import com.example.gp.Hotel.HotelService;
-import com.example.gp.Restaurant.Restaurant;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

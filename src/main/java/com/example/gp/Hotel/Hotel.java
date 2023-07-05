@@ -1,12 +1,17 @@
 package com.example.gp.Hotel;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 @Entity
 public class Hotel {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
@@ -15,7 +20,7 @@ public class Hotel {
 
     private int prices;
 
-    private String amenities;
+    // private String amenities;
 
     private String location;
 
@@ -24,16 +29,20 @@ public class Hotel {
     @Column(name = "City")
     private String city;
 
-    @Column(name = "Latitude")
+    @Column(name = "latitude")
+    @JsonProperty("Latitude")
     private double latitude;
 
     @Column(name = "Longitude")
+    @JsonProperty("Longitude")
     private double longitude;
 
     @Column(name = "Price_Range")
+    @JsonProperty("Price_Range")
     private String priceRange;
 
     @Column(name = "image_url")
+    @JsonProperty("image_url")
     private String imageUrl;
 
     @Id
@@ -69,13 +78,13 @@ public class Hotel {
         this.prices = prices;
     }
 
-    public String getAmenities() {
-        return amenities;
-    }
+    // public String getAmenities() {
+    //     return amenities;
+    // }
 
-    public void setAmenities(String amenities) {
-        this.amenities = amenities;
-    }
+    // public void setAmenities(String amenities) {
+    //     this.amenities = amenities;
+    // }
 
     public String getLocation() {
         return location;
